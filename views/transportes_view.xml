@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!-- Vistas Barco-->
+			<record model="ir.ui.view" id="transportes_barcos_tree">
+				<field name="name">transportes.barcos.tree</field>
+				<field name="model">transportes.barcos</field>
+				<field name="arch" type="xml">
+					<tree string="" > 
+						<field name="name"/>
+						<field name="codigo_barco"/>
+						
+					</tree>
+				</field>
+			</record>
+			<record model="ir.ui.view" id="transportes_barcos_form">
+				<field name="name">transportes.barcos.form</field>
+				<field name="model">transportes.barcos</field>
+				<field name="arch" type="xml">
+					<form >
+						
+						<sheet>
+							
+							<group col="2">
+								<group>
+									<field name="name" />
+									
+								</group>
+								<group>
+									<field name="codigo_barco" />
+									
+								</group>
+
+							</group>
+
+							
+									
+								
+						</sheet>
+					</form>
+				</field>
+			</record>
+			<record model="ir.ui.view" id="transportes_barcos_search">
+				<field name="name">transportes.barcos.search</field>
+				<field name="model">transportes.barcos</field>
+				<field name="arch" type="xml">
+					<search>
+						<field name="name" />
+						<field name="codigo_barco"/>
+						<!--Grupos-->
+						<filter name="name" string="Barco" icon="terp-partner" context="{'group_by':'name'}"/> 
+						<filter name="codigo_barco" string="Código de Barco" icon="terp-partner" context="{'group_by':'codigo_barco'}"/> 
+					</search>
+				</field>
+			</record>
+			<record id="transportes_barcos_action" model="ir.actions.act_window">
+				<field name="name">Barcos</field>
+				<field name="res_model">transportes.barcos</field>
+				<field name="view_mode">tree,form</field>
+				
+
+			</record>
+	 	<!-- Vistas Ruta-->
+			<record model="ir.ui.view" id="transportes_rutas_tree">
+				<field name="name">transportes.rutas.tree</field>
+				<field name="model">transportes.rutas</field>
+				<field name="arch" type="xml">
+					<tree string="" > 
+						<field name="name"/>
+						<field name="codigo_ruta"/>
+						
+					</tree>
+				</field>
+			</record>
+			<record model="ir.ui.view" id="transportes_rutas_form">
+				<field name="name">transportes.rutas.form</field>
+				<field name="model">transportes.rutas</field>
+				<field name="arch" type="xml">
+					<form >
+						
+						<sheet>
+							
+							<group col="2">
+								<group>
+									<field name="name" />
+									
+								</group>
+								<group>
+									<field name="codigo_ruta" />
+									
+								</group>
+
+							</group>
+
+							
+									
+								
+						</sheet>
+					</form>
+				</field>
+			</record>
+			<record model="ir.ui.view" id="transportes_rutas_search">
+				<field name="name">transportes.rutas.search</field>
+				<field name="model">transportes.rutas</field>
+				<field name="arch" type="xml">
+					<search>
+						<field name="name" />
+						<field name="codigo_ruta"/>
+						<!--Grupos-->
+						<filter name="name" string="Ruta" icon="terp-partner" context="{'group_by':'name'}"/> 
+						<filter name="codigo_ruta" string="Código de ruta" icon="terp-partner" context="{'group_by':'codigo_ruta'}"/> 
+					</search>
+				</field>
+			</record>
+			<record id="transportes_rutas_action" model="ir.actions.act_window">
+				<field name="name">Rutas</field>
+				<field name="res_model">transportes.rutas</field>
+				<field name="view_mode">tree,form</field>
+				
+
+			</record>
+	 	<!-- Vistas Embarque-->
+			<record model="ir.ui.view" id="transportes_embarque_tree">
+				<field name="name">transportes.embarque.tree</field>
+				<field name="model">transportes.embarque</field>
+				<field name="arch" type="xml">
+					<tree string="" > 
+						<field name="name"/>
+						<field name="barcos"/>
+						<field name="rutas"/>
+						<field name="productos" widget='many2many_tags'/>
+					</tree>
+				</field>
+			</record>
+			<record model="ir.ui.view" id="transportes_embarque_form">
+				<field name="name">transportes.embarque.form</field>
+				<field name="model">transportes.embarque</field>
+				<field name="arch" type="xml">
+					<form >
+						<sheet>
+							<group>
+								<field name="name" />
+							</group>
+							<group col="2">
+								<group>
+									<field name="barcos" />
+								</group>
+								<group>
+									<field name="rutas" />
+								</group>
+							</group>
+						
+							<notebook>
+								<page string="Productos">
+									<group >
+										<field name="productos" nolabel='1' >
+											<tree string="Product" >
+												<field name="sale_ok" invisible="1"/>
+												<field name="currency_id" invisible="1"/>
+												<field name="cost_currency_id" invisible="1"/>
+
+												<field name="sequence" widget="handle" readonly="1"/>
+												<field name="name" string="Product Name"/>
+												<field name="company_id" options="{'no_create_edit': True}" groups="base.group_multi_company" optional="hide"/>
+												<field name="list_price" string="Sales Price" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"/>
+											</tree>
+										</field>
+										
+									</group>
+								</page>
+								
+							</notebook>
+									
+								
+						</sheet>
+					</form>
+				</field>
+			</record>
+			<record model="ir.ui.view" id="transportes_embarque_search">
+				<field name="name">transportes.embarque.search</field>
+				<field name="model">transportes.embarque</field>
+				<field name="arch" type="xml">
+					<search>
+						<field name="name" />
+						<field name="barcos"/>
+						<field name="rutas"/>
+					</search>
+				</field>
+			</record>
+			<record id="transportes_embarque_action" model="ir.actions.act_window">
+				<field name="name">Producción</field>
+				<field name="res_model">transportes.embarque</field>
+				<field name="view_mode">tree,form</field>
+				
+
+			</record>
+		<!---->
+    </data>
+
+</odoo>

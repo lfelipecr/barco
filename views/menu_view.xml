@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+		<!-- Menu -->
+		<menuitem name="Transporte Maritimo" id="transporte" sequence="20"/>
+
+			<menuitem name="Barcos" id="transporte_barcos" parent="transporte" action="transportes_barcos_action" sequence="10"/>
+			<menuitem name="Rutas" id="transporte_rutas" parent="transporte" action="transportes_rutas_action" sequence="15"/>
+			<menuitem name="Embarques" id="transporte_embarques" parent="transporte" action="transportes_embarque_action" sequence="20"/>
+	</data>
+</odoo>

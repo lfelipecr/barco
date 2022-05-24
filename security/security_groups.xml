@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo noupdate="1">
+
+    <record id="transportes_id" model="ir.module.category">
+        <field name="name">Trasnportes Marítimos</field>
+    </record>
+
+    <record id="embarques_id" model="res.groups">
+        <field name="name">Embarques</field>
+        <field name="category_id" ref="transportes_id"/>
+    </record>
+
+  </odoo>

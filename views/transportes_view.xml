@@ -154,15 +154,16 @@
 								<page string="Productos">
 									<group >
 										<field name="productos" nolabel='1' >
-											<tree string="Product" >
+											<tree string="Product" multi_edit="1">
 												<field name="sale_ok" invisible="1"/>
 												<field name="currency_id" invisible="1"/>
 												<field name="cost_currency_id" invisible="1"/>
 
 												<field name="sequence" widget="handle" readonly="1"/>
-												<field name="name" string="Product Name"/>
+												<field name="name" string="Product Name"  readonly="1"/>
 												<field name="company_id" options="{'no_create_edit': True}" groups="base.group_multi_company" optional="hide"/>
-												<field name="list_price" string="Sales Price" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"/>
+												<field name="list_price" string="Sales Price" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"  readonly="1"/>
+												<field name="costo_embarque" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok" sum = 'total'/>
 											</tree>
 										</field>
 										
@@ -188,7 +189,7 @@
 				</field>
 			</record>
 			<record id="transportes_embarque_action" model="ir.actions.act_window">
-				<field name="name">Producción</field>
+				<field name="name">Embarques</field>
 				<field name="res_model">transportes.embarque</field>
 				<field name="view_mode">tree,form</field>
 				

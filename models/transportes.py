@@ -28,7 +28,7 @@ class productos(models.Model):
    
     embarque_enlace = fields.Many2one('transportes.embarque')
 
-
+    costo_embarque = fields.Float(string='Costo trasnporte', required=True)
 
 class embarque(models.Model):
     _name = 'transportes.embarque'
@@ -39,3 +39,7 @@ class embarque(models.Model):
     rutas = fields.Many2one('transportes.rutas', string='Rutas', required=True)
     productos = fields.Many2many('product.template', 'embarque_enlace',
         string="Productos", required=True, ondelete='cascade')
+
+ 
+
+    

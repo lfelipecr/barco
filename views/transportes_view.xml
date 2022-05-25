@@ -153,8 +153,8 @@
 							<notebook>
 								<page string="Productos">
 									<group >
-										<field name="productos" nolabel='1' >
-											<tree string="Product" multi_edit="1">
+										<field name="productos" nolabel='1' editable='top'>
+											<tree string="Product" >
 												<field name="sale_ok" invisible="1"/>
 												<field name="currency_id" invisible="1"/>
 												<field name="cost_currency_id" invisible="1"/>
@@ -167,6 +167,14 @@
 											</tree>
 										</field>
 										
+									</group>
+									<group class="oe_subtotal_footer oe_right" colspan="2" name="trasnporte_total">
+										<field name="total_productos" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+										<field name="total_transporte" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+										<div class="oe_subtotal_footer_separator oe_inline o_td_label">
+											<label for="costo_total"/>
+										</div>
+										<field name="costo_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
 									</group>
 								</page>
 								

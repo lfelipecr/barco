@@ -40,6 +40,15 @@ class embarque(models.Model):
     productos = fields.Many2many('product.template', 'embarque_enlace',
         string="Productos", required=True, ondelete='cascade')
 
- 
+    total_productos = fields.Float(string='Total de productos', compute='_compute_costo_trasnporte') 
+    total_transporte = fields.Float(string='Total de trasnporte', compute='_compute_costo_trasnporte')     
+    costo_total  = fields.Float(string='Total', compute='_compute_costo_trasnporte')
 
+    @api.depends('productos')
+    def _compute_costo_trasnporte(self):
+        for rec in self:
+            for record in rec.productos:
+                rec.total_productos += record.list_price
+                rec.total_transporte += record.costo_embarque
+            rec.costo_total = rec.total_productos + rec.total_transporte 
     

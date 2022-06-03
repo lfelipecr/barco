@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_barcos,access_transportes_barcos,model_transportes_barcos,base.group_user,1,1,1,1
-access_rutas,access_transportes_rutas,model_transportes_rutas,,1,1,1,1
-acces_embarque,access_transportes_embarque,model_transportes_embarque,,1,1,1,1
-,,,,,,,
+access_rutas,access_transportes_rutas,model_transportes_rutas,base.group_user,1,1,1,1
+acces_embarque,access_transportes_embarque,model_transportes_embarque,base.group_user,1,1,1,1

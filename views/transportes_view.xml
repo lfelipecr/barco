@@ -162,7 +162,7 @@
 												<field name="sequence" widget="handle" readonly="1"/>
 												<field name="name" string="Product Name"  readonly="1"/>
 												<field name="company_id" options="{'no_create_edit': True}" groups="base.group_multi_company" optional="hide"/>
-												<field name="list_price" string="Sales Price" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"  readonly="1"/>
+												<field name="list_price" string="Sales Price" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"  readonly="1" sum = 'total'/>
 												<field name="costo_embarque" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok" sum = 'total'/>
 											</tree>
 										</field>

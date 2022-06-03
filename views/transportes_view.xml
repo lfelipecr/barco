@@ -153,8 +153,8 @@
 							<notebook>
 								<page string="Productos">
 									<group >
-										<field name="productos" nolabel='1' editable='top'>
-											<tree string="Product" >
+										<field name="productos" nolabel='1' >
+											<tree string="Product" editable='top' >
 												<field name="sale_ok" invisible="1"/>
 												<field name="currency_id" invisible="1"/>
 												<field name="cost_currency_id" invisible="1"/>

@@ -3,7 +3,8 @@
 	<data>
 	
 		<!-- Menu -->
-		<menuitem name="Transporte Maritimo" id="transporte" sequence="20"/>
+
+		<menuitem name="Transporte Maritimo" id="transporte" sequence="20" web_icon="barco,static/description/icon.png" />
 
 			<menuitem name="Barcos" id="transporte_barcos" parent="transporte" action="transportes_barcos_action" sequence="10"/>
 			<menuitem name="Rutas" id="transporte_rutas" parent="transporte" action="transportes_rutas_action" sequence="15"/>
